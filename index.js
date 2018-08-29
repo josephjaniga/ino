@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /**
  * Operate on boards by the board ID... not numeric index
  */
