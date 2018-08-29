@@ -2,10 +2,12 @@
 
 A CLI wrapper written in NodeJS for the `arduino-cli` go application, with the intention of making the CLI easier to use.
 
+ Sometimes uploading a sketch to an Arduino Board will change how the system recognizes the Device.  This can cause COM ports to change based on how the new device drivers may have installed it.  This would normally cause you to lose the board on the device list, and have to go fish from the list to identify its new ports.  `ino` will keep the devices unique identifier and do all of that work for you.  Just activate the board you want to work with and go about your business.  Need to change the usb port you are using?  Going to install a sketch to a HID device that will make the system recognize it as a Mouse? Keyboard? Joystick? Don't worry about it.
+
 ## Features
 
 * Select a board to "activate" it, and the remaining commands will use that board.
-* Will identify the board by its unique ID, if ports change it will identify where the board is and work with it.
+* Will identify the board by its unique ID, if ports change it will identify where the board is and work with it transparent to you.
 
 ## Requirements
 
@@ -31,8 +33,10 @@ $ ino -h
 
     boards                Lists the attached boards
     select <boardNumber>  Select a board to set as the active board
-    compile               Compile a sketch for the active board
-    upload                Upload a sketch to the active board
+    compile [sketch]      Compile a sketch for the active board.  If no sketch path is provided will attempt to use the current working
+ directory.
+    upload [sketch]       Upload a sketch to the active board.  If no sketch path is provided will attempt to use the current working d
+irectory.
 
 ```
 
